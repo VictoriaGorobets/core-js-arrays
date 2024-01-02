@@ -22,7 +22,7 @@
  */
 function getIntervalArray(start, end) {
   const result = [];
-  for (let i = start; i <= end; i+=) {
+  for (let i = start; i <= end; i += 1) {
     result.push(i);
   }
   return result;
