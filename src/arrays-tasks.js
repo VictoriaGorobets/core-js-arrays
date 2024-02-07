@@ -482,12 +482,8 @@ function getIndicesOfOddNumbers(numbers) {
  *    getHexRGBValues([ 0, 255, 16777215]) => [ '#000000', '#0000FF', '#FFFFFF' ]
  *    getHexRGBValues([]) => []
  */
-function getHexRGBValues(arr) {
-  return arr.map((number) => {
-    const clampedNumber = Math.max(0, Math.min(number, 255));
-    const hexValue = clampedNumber.toString(16).padStart(2, '0');
-    return `#${hexValue.toUpperCase()}${hexValue.toUpperCase()}${hexValue.toUpperCase()}`;
-  });
+function getHexRGBValues(/* arr */) {
+  throw new Error('Not implemented');
 }
 
 /**
@@ -539,21 +535,8 @@ function findCommonElements(arr1, arr2) {
  *    findLongestIncreasingSubsequence([3, 10, 2, 1, 20]) => 2
  *    findLongestIncreasingSubsequence([50, 3, 10, 7, 40, 80]) => 3
  */
-function findLongestIncreasingSubsequence(nums) {
-  if (nums.length === 0) {
-    return 0;
-  }
-
-  const dp = new Array(nums.length).fill(1);
-
-  for (let i = 1; i < nums.length; i += 1) {
-    for (let j = 0; j < i; j += 1) {
-      if (nums[i] > nums[j] && dp[i] < dp[j] + 1) {
-        dp[i] = dp[j] + 1;
-      }
-    }
-  }
-  return Math.max(...dp);
+function findLongestIncreasingSubsequence(/* nums */) {
+  throw new Error('Not implemented');
 }
 
 /**
@@ -607,8 +590,23 @@ function shiftArray(/* arr, n */) {
  *   sortDigitNamesByNumericOrder([ 'nine','eight','nine','eight' ]) => [ 'eight','eight','nine','nine']
  *   sortDigitNamesByNumericOrder([ 'one','one','one','zero' ]) => [ 'zero','one','one','one' ]
  */
-function sortDigitNamesByNumericOrder(/* arr */) {
-  throw new Error('Not implemented');
+function sortDigitNamesByNumericOrder(arr) {
+  const digitOrder = [
+    'zero',
+    'one',
+    'two',
+    'three',
+    'four',
+    'five',
+    'six',
+    'seven',
+    'eight',
+    'nine',
+  ];
+
+  arr.sort((a, b) => digitOrder.indexOf(a) - digitOrder.indexOf(b));
+
+  return arr;
 }
 
 /**
